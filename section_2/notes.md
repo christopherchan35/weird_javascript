@@ -22,3 +22,5 @@ Undefined is a special value in Javascript, but it actually takes up space in me
 Single Threaded, Synchronous Execution:
   - Single Threaded: One command at a time
   - Synchronous: One at a time and (in order)
+
+Scope Chain: code will look for matching variable or function from the outer lexical environment
