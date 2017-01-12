@@ -12,4 +12,9 @@ Execution Context is created in 2 phases:
   - Global Object
   - 'this'
   - Outer Environment
-  - Setup memory space for variables and functions "Hoisting"
+  - Setup memory space for variables and functions called "Hoisting"
+    - The functions themselves are saved into memory and can be called but variables only have their names saved with the value of Undefined
+- Execution Phase:
+  - Runs your code, line by line. Interpreting, Converting, Compiling, and Executing
+
+Undefined is a special value in Javascript, but it actually takes up space in memory and is the value initially set by JS.
