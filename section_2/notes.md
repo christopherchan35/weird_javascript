@@ -26,3 +26,5 @@ Single Threaded, Synchronous Execution:
 Scope Chain: code will look for matching variable or function from the outer lexical environment
 
 Let: Introduced in ES6, allows you to set variables with ```let``` instead of ```var```. The difference is they are both stored in memory during the creation phase, but with ```let```, you cannot call the variable before the line where it is declared has been executed. Whereas with ```var``` you can call it beforehand but you will just get the value ```undefined```
+
+JS looks to finish the execution contexts before handling the event context (ie. click events)
