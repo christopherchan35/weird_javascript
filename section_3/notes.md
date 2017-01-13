@@ -15,3 +15,27 @@ Primitive Types:
   - Number - floating point number, there's always some decimal
   - String - sequence of characters
   - Symbol - used in ES6
+
+You can think of the ```+``` operator as a function.
+``` Javascript
+var num = 3 + 4;
+
+function +(a, b) {
+  return a + b;
+}
+
++(3, 4);
+```
+
+But calling the function as such would be quite inconvenient so we can use 'infix notation' which is what we are used to:
+``` Javascript
+3 + 4;
+```
+There is also an option called 'prefix notation:
+``` Javascript
++3 4;
+```
+and even 'postfix notation':
+``` Javascript
+3 4+;
+```
