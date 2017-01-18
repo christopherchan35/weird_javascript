@@ -40,3 +40,5 @@ and even 'postfix notation':
 3 4+;
 ```
 But let's just focus on infix notation while using Javascript
+
+The triple equals/strict eqeuality ```===``` is great for checking if the values are what is strictly specified.
