@@ -42,3 +42,11 @@ and even 'postfix notation':
 But let's just focus on infix notation while using Javascript
 
 The triple equals/strict equality ```===``` is great for checking if the values are what is strictly specified.
+
+Javascript is different from many other programming languages in how it won't error out if you try to use a variable that is ```undefined```.
+``` Javascript
+function greet(name) {
+  console.log('Hello ' + name);
+}
+```
+will output 'Hello undefined'
