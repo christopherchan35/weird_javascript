@@ -18,3 +18,11 @@ console.log(3 == 3);
 // expect true
 console.log('3' == 3);
 // expect true
+
+console.log("" == 0);
+// returns true
+console.log("" == false);
+// also returns true
+
+console.log('3' === 3);
+// returns false because string is not a number
