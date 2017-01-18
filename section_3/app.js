@@ -13,3 +13,8 @@ console.log(3 < 2 < 1);
 // expect this to be false, but returns true
 // precedence starts from left to right, so 3 < 2 = false
 // therefore it evaluates (false < 1)
+
+console.log(3 == 3);
+// expect true
+console.log('3' == 3);
+// expect true
