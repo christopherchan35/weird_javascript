@@ -39,3 +39,4 @@ and even 'postfix notation':
 ``` Javascript
 3 4+;
 ```
+But let's just focus on infix notation while using Javascript
