@@ -46,3 +46,8 @@ greet({
   firstname: 'John',
   lastname: 'Doe'
 });
+
+var greet = 'Hello!';
+var greet = 'Hola!';
+console.log(greet);
+// here it would print out 'Hola!' because of the order it executes the lines of code
