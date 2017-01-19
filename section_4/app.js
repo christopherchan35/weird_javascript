@@ -24,3 +24,25 @@ console.log(person.address);
 console.log(person.address.street);
 console.log(person.address.city);
 console.log(person['address']['state']);
+
+var person2 = {
+  firstname: 'Chris',
+  lastname: 'Chan',
+  address: {
+    street: '123 Main St.',
+    city: 'San Francisco',
+    state: 'CA'
+  }
+};
+
+// console.log(person2);
+
+function greet(person) {
+  console.log('Hi ' + person.firstname);
+}
+
+greet(person2);
+greet({
+  firstname: 'John',
+  lastname: 'Doe'
+});
