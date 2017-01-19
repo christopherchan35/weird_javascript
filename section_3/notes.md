@@ -1,4 +1,4 @@
-# Section 3
+# Section 3: Types and Operators
 
 Javascript uses dynamic typing, which means the following code is valid:
 ``` Javascript
