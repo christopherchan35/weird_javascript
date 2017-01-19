@@ -26,3 +26,17 @@ var english = {
 console.log(english.greetings.basic);
 ```
 Then we would expect this to print out 'Hello!'.
+
+In JS, you can convert an object to a JSON string
+``` Javascript
+var objectLiteral = {
+  firstname: 'Mary',
+  isAProgrammer: true
+}
+
+// converts an object into JSON string
+console.log(JSON.stringify(objectLiteral));
+
+// converts the string into a JSON object
+var jsonValue = JSON.parse('{ "firstname": "Mary", "isAProgrammer": true }');
+```
