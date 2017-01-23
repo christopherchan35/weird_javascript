@@ -52,7 +52,7 @@ console.log(greet.language);
 ```
 Then the last console.log will output ```english```.
 
-An anonymous function
+An anonymous function is called in the same way you would call a regular function. But they cannot be hoisted since variables are set to ```undefined``` during the creation phase.
 ```Javascript
 var anonymousGreet = function() {
   console.log('hi');
@@ -60,3 +60,15 @@ var anonymousGreet = function() {
 
 anonymousGreet();
 ```
+
+You can also pass functions into functions
+```Javascript
+function log(a) {
+  a();
+}
+
+log(function() {
+  console.log('hi');
+});
+```
+Then this will output ```hi```.
