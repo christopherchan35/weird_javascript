@@ -75,16 +75,21 @@ Then this will output ```hi```.
 
 by Value vs. by Reference
 ```Javascript
-// by Value
+// by Value(primitives)
 var a = 1;
 var b;
 b = a
 a = 2;
 // b now has a copy of a's original value, a primitive value. but when a is set to 2, b is still pointing to 1.
 
-// by Reference
-var a = Object;
-var b;
-b = a
-// b now points to the same object in memory that a is pointing to
+// by Reference(all objects, including functions)
+var c = { greeting: 'hi' };
+var d;
+d = c;
+c.greeting = 'hello';
+// d now points to the same object in memory that c is pointing to. so if c is set to another object, d would also point to the same object
+
+// except the equals operator sets up a new memory space
+c = { greeting: 'howdy' };
+// so c would not point to howdy while d still points to hello
 ```
