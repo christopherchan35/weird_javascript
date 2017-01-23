@@ -93,3 +93,23 @@ c.greeting = 'hello';
 c = { greeting: 'howdy' };
 // so c would not point to howdy while d still points to hello
 ```
+
+'This' on the global scope refers to the Window
+```Javascript
+function a() {
+  console.log(this);
+}
+
+a();
+// will console.log the Window
+
+var c = {
+  name: 'The c object',
+  log: function() {
+    console.log(this);
+  }
+}
+
+c.log();
+// but there 'this' points to the c object because it was called from a method of that object
+```
