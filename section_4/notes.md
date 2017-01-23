@@ -140,3 +140,22 @@ var c = {
   }
 }
 ```
+
+arguments is an array-like variable that holds the values being passed into a function
+```Javascript
+function greet(firstname, lastname, language, ...other){
+  language = language || 'en';
+
+  if (arguments.length === 0) {
+    console.log('Missing parameters!');
+    return;
+  }
+  console.log(firstname);
+  console.log(arguments);
+  console.log(arguments[0]);
+}
+
+greet(); // will output an error
+greet('Chris'); // arguments will have firstname and default language
+greet('Chris', 'Chan', 'en', 'other', 'parameters'); // everything after the language argument will be put into an array variable as I've named 'other'
+```
