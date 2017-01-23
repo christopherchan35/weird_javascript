@@ -159,3 +159,23 @@ greet(); // will output an error
 greet('Chris'); // arguments will have firstname and default language
 greet('Chris', 'Chan', 'en', 'other', 'parameters'); // everything after the language argument will be put into an array variable as I've named 'other'
 ```
+Watch out for: Automatic Semicolon Insertion
+```Javascript
+// always put in your own semicolons so JS doesn't do it for you and give
+// unexpected results
+function getPerson() {
+  return
+  {
+    firstname: 'Chris'
+  }
+}
+
+console.log(getPerson());
+// but this will console.log undefined
+// because it sees a carriage return after the return key-word
+// instead the curly braces should be put on the same line
+
+  return {
+    firstname: 'Chris'
+  }
+```
