@@ -77,11 +77,14 @@ by Value vs. by Reference
 ```Javascript
 // by Value
 var a = 1;
-var b = a;
-// b now has a copy of a, a primitive value
+var b;
+b = a
+a = 2;
+// b now has a copy of a's original value, a primitive value. but when a is set to 2, b is still pointing to 1.
 
 // by Reference
 var a = Object;
-var b = a;
+var b;
+b = a
 // b now points to the same object in memory that a is pointing to
 ```
