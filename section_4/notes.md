@@ -51,3 +51,12 @@ greet.language = 'english';
 console.log(greet.language);
 ```
 Then the last console.log will output ```english```.
+
+An anonymous function
+```Javascript
+var anonymousGreet = function() {
+  console.log('hi');
+}
+
+anonymousGreet();
+```
