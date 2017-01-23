@@ -72,3 +72,16 @@ log(function() {
 });
 ```
 Then this will output ```hi```.
+
+by Value vs. by Reference
+```Javascript
+// by Value
+var a = 1;
+var b = a;
+// b now has a copy of a, a primitive value
+
+// by Reference
+var a = Object;
+var b = a;
+// b now points to the same object in memory that a is pointing to
+```
