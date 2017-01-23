@@ -106,10 +106,37 @@ a();
 var c = {
   name: 'The c object',
   log: function() {
+    this.name = 'updated c object';
     console.log(this);
+
+    // here is a potential problem with JS
+    var setname = function(newname) {
+      this.name = newname;
+    }
+    setname('here is the new name');
+    console.log(this);
+    // instead of changing the object c's name to 'here is the new name', this will instead change the name of the Window object, even though you are trying to set it inside the object itself.
   }
 }
 
 c.log();
 // but there 'this' points to the c object because it was called from a method of that object
+```
+A common work around is to use a method equal to ```this``` and using it in place of this.
+```Javascript
+var c = {
+  name: 'The c object',
+  log: function() {
+    var self = this;
+    self.name = 'updated c object';
+    console.log(self);
+
+    var setname = function(newname){
+      self.name = newname;
+    }
+
+    setname('here is the new name');
+    console.log(self);
+  }
+}
 ```
