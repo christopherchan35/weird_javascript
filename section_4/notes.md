@@ -40,3 +40,14 @@ console.log(JSON.stringify(objectLiteral));
 // converts the string into a JSON object
 var jsonValue = JSON.parse('{ "firstname": "Mary", "isAProgrammer": true }');
 ```
+
+In Javascript, functions are a special type of object. You can add primitives, properties, objects, and other functions to them.
+``` Javascript
+function greet() {
+  console.log('hi');
+}
+
+greet.language = 'english';
+console.log(greet.language);
+```
+Then the last console.log will output ```english```.
