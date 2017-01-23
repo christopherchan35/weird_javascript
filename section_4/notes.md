@@ -179,3 +179,24 @@ console.log(getPerson());
     firstname: 'Chris'
   }
 ```
+
+Immediately Invoked Function Expressions (IFFEs):
+```Javascript
+var greeting = function(name) {
+  console.log('Hello ' + name);
+}('Chris');
+// the parenthesis after the curly brackets run the function at the time of creation
+console.log(greeting);
+```
+
+To have a function expression sitting around instead of a function statement:
+```Javascript
+var firstname = 'Chris';
+
+// just wrap your function with parenthesis
+(function(name) {
+  var greeting = 'INSIDE IIFE: Hello'
+  console.log(greeting + ' ' + name);
+}(firstname));
+// it can also be invoked immediately if it is followed by parenthesis
+```

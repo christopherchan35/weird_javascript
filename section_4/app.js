@@ -51,3 +51,14 @@ var greet = 'Hello!';
 var greet = 'Hola!';
 console.log(greet);
 // here it would print out 'Hola!' because of the order it executes the lines of code
+
+var fn = 'Chris';
+var ln = 'Chan';
+
+(function(firstname, lastname, language, ...other){
+  var greeting = 'INSIDE THE IIFE WE GO:';
+  language = language || 'en';
+  console.log(greeting + ' ' + arguments[0]);
+  console.log(firstname + ' ' + lastname + ' ' + language + ' ' + other);
+  console.log(other);
+}(fn, ln, 'en', 'where', 'are', 'you', 'now', 'that', 'I', 'need', 'you'));
