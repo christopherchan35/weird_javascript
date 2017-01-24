@@ -223,19 +223,13 @@ sayHi('Chris');
 Tricky Closures:
 ```Javascript
 function buildFunctions() {
-
     var arr = [];
-
     for (var i = 0; i < 3; i++) {
-
         arr.push(
             function() {
                 console.log(i);   
-            }
-        )
-
+            })
     }
-
     return arr;
 }
 
@@ -250,17 +244,14 @@ One would expect this to print out 0, 1, 2. But instead it prints out 3, 3, 3. T
 But let's say you did want to print out 0, 1, 2. This can be done with ```let``` in ES6. Otherwise, if you are using ES5, an IIFE can serve the same purpose.
 ```Javascript
 function buildFunctions2() {
-
   var arr = [];
-
   for (var i = 0; i < 3; i++) {
     // the let holds the value of i within the scope of the block
     let j = i;
     arr.push(
       function() {
         console.log(j);
-      }
-    )
+      })
   }
 }
 
@@ -270,3 +261,21 @@ fs2[0];
 fs2[1];
 fs2[2];
 ```
+
+Factory: function that makes or returns other things
+```Javascript
+function makeGreeting(language) {
+    return function(firstname, lastname) {
+        if (language === 'en') {
+            console.log('Hello ' + firstname + ' ' + lastname);   
+        }
+        if (language === 'es') {
+            console.log('Hola ' + firstname + ' ' + lastname);   
+        }
+    }  
+}
+
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('es');
+```
+Both greetEnglish and greetSpanish contain the same function but each have a different execution content and different language enclosed in its closure. Therefore they will console.log different results.
