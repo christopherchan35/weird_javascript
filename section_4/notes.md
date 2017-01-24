@@ -280,5 +280,7 @@ var greetSpanish = makeGreeting('es');
 
 greetEnglish('John', 'Doe');
 // will output 'Hello John Doe'
+greetSpanish('John', 'Doe');
+// will output 'Hola John Doe'
 ```
 Both greetEnglish and greetSpanish contain the same function but each have a different execution content and different language enclosed in its closure. Therefore they will console.log different results.
