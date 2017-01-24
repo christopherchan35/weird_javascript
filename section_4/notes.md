@@ -284,3 +284,21 @@ greetSpanish('John', 'Doe');
 // will output 'Hola John Doe'
 ```
 Both greetEnglish and greetSpanish contain the same function but each have a different execution content and different language enclosed in its closure. Therefore they will console.log different results.
+
+Callback Function: a function you give to another function, to be run when the other function is finished.
+```Javascript
+function tellMeWhenDone(callbackFunction){
+  var a = 1; // random var
+  var b = 2; // random var
+
+  callbackFunction(); // the 'callback', it runs the function that has been passed in
+}
+
+tellMeWhenDone(function() {
+  console.log('Callback1');
+})
+
+tellMeWhenDone(function() {
+  console.log('Callback2');
+})
+```
