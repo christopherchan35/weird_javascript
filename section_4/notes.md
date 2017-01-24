@@ -200,3 +200,5 @@ var firstname = 'Chris';
 }(firstname));
 // it can also be invoked immediately if it is followed by parenthesis
 ```
+
+IIFEs wrapped in parenthesis can be designed to not collide with code outside of it because the fact that it's an anonymous function means it gets its own execution content stack. Therefore any variables in the anonymous function should not interfere with those outside of its scope. You can intentionally crash into objects outside of its scope by passing it in as an argument.
