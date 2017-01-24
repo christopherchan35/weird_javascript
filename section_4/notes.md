@@ -305,22 +305,41 @@ tellMeWhenDone(function() {
 
 All functions in JS have access to 3 additional functions: call, apply, and bind.
 ```Javascript
-// bind() is used to set the 'this' within functions
+// bind() is used to set the 'this' within functions. it creates a copy of the function
 var person = {
   firstname: 'Chris',
   lastname: 'Chan',
   getFullName: function(){
-    var fullname = firstname + ' ' + lastname;
+    var fullname = this.firstname + ' ' + this.lastname;
     return fullname;
   }
 }
 
 var logName = function(lang1, lang2){
   console.log('Logged ' + this.getFullName());
+  console.log('Arguments: ' + lang1 + ' ' + lang2);
 }
 
 var logPersonName = logName.bind(person);
 // the bind allows the this.getFullName() in the logName anonymous function to point to the var person instead of the global this Window object
 
 logPersonName();
+logPersonName('en');
+// will output: 'Logged Chris Chan'
+// 'Arguments: en undefined'
+
+// call() is similar to invoking a function with parenthesis but allows the user to set this and pass in parameters
+logName.call(person, 'en', 'es');
+
+// apply() is very similar to call except you pass in the parameters as an array
+logName.apply(person, ['en', 'es']);
+
+// function borrowing
+var person2 = {
+  firstname: 'Jane',
+  lastname: 'Doe'
+}
+
+person.getFullName.apply(person2);
+// here we use person's getFullName method but with the values from person2
 ```
