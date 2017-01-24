@@ -219,3 +219,30 @@ var sayHi = greet('Hi');
 sayHi('Chris');
 // this is possible due to closures
 ```
+
+Tricky Closures:
+```Javascript
+function buildFunctions() {
+
+    var arr = [];
+
+    for (var i = 0; i < 3; i++) {
+
+        arr.push(
+            function() {
+                console.log(i);   
+            }
+        )
+
+    }
+
+    return arr;
+}
+
+var fs = buildFunctions();
+
+fs[0]();
+fs[1]();
+fs[2]();
+```
+One would expect this to print out 0, 1, 2. But instead it prints out 3, 3, 3. This is because the console is not invoked when it is pushed into the array, but instead invoked when called with fs[0](); and same with 1 and 2. Then the i at the latest execution of the loop was 3, which caused it to break out of the for loop. And that is why it prints out the number 3 for each element of the array.
