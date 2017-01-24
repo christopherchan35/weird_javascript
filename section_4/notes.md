@@ -203,7 +203,7 @@ var firstname = 'Chris';
 
 IIFEs wrapped in parenthesis can be designed to not collide with code outside of it because the fact that it's an anonymous function means it gets its own execution content stack. Therefore any variables in the anonymous function should not interfere with those outside of its scope. You can intentionally crash into objects outside of its scope by passing it in as an argument.
 
-Closures:
+Closures: (closing in all the variables a context is supposed to have access to)
 ```Javascript
 function greet(whattosay){
   return function(name){
