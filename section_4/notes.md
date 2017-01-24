@@ -302,3 +302,25 @@ tellMeWhenDone(function() {
   console.log('Callback2');
 })
 ```
+
+All functions in JS have access to 3 additional functions: call, apply, and bind.
+```Javascript
+// bind() is used to set the 'this' within functions
+var person = {
+  firstname: 'Chris',
+  lastname: 'Chan',
+  getFullName: function(){
+    var fullname = firstname + ' ' + lastname;
+    return fullname;
+  }
+}
+
+var logName = function(lang1, lang2){
+  console.log('Logged ' + this.getFullName());
+}
+
+var logPersonName = logName.bind(person);
+// the bind allows the this.getFullName() in the logName anonymous function to point to the var person instead of the global this Window object
+
+logPersonName();
+```
