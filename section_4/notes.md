@@ -342,4 +342,14 @@ var person2 = {
 
 person.getFullName.apply(person2);
 // here we use person's getFullName method but with the values from person2
+
+// function currying: creating a copy of a function but with some preset parameters
+function multiply(a, b){
+  return a * b;
+}
+
+var multiplyByTwo = multiply.bind(this, 2);
+// bind already creates a copy of the function, but by passing in parameters it sets the permanent values of the parameters when the copy is made. This makes it so that every multiplyByTwo function has var a = 2
+
+multiplyByTwo(3); // which will return 2 * 3 which is 6
 ```
