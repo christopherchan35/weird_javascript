@@ -353,3 +353,51 @@ var multiplyByTwo = multiply.bind(this, 2);
 
 multiplyByTwo(3); // which will return 2 * 3 which is 6
 ```
+
+Functional Programming
+```Javascript
+// typical loop through an array
+var arr1 = [1,2,3];
+var arr2 = [];
+for (var i = 0; i < arr1.length; i++){
+  arr2.push(arr1[i] * 2);
+}
+// which will result in arr2 = [2,4,6]
+
+// functional programming approach
+function mapForEach(arr, fn){
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++){
+    newArr.push(
+      fn(arr[i])
+    )
+  }
+}
+
+// then you can simply call
+var arr2 = mapForEach(arr1, function(item){
+  return item * 2;
+});
+
+// can easily change it to get 3x the array and so on
+var arr3 = mapForEach(arr1, function(item){
+  return item * 3;
+});
+
+// here we have a function that I want to iterate over the array and return an array of true and falses. The issue is that the fn in mapForEach
+var checkPastLimit = function(limiter, item){
+  return item > limiter;
+}
+
+var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
+// this sets the limiter ofr checkPastLimit to 1, so it evaluates if each element of the array is greater than 1
+
+// you can also do it without passing in both this and 1
+var checkPastLimitSimplified = function(limiter){
+  return function(limiter, item){
+    return item > limiter;
+  }.bind(this, limiter);
+}
+
+var ar5 = mapForEach(arr1, checkPastLimitSimplified(1));
+```
