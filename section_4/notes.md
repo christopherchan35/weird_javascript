@@ -353,3 +353,8 @@ var multiplyByTwo = multiply.bind(this, 2);
 
 multiplyByTwo(3); // which will return 2 * 3 which is 6
 ```
+
+Functional Programming
+```Javascript
+
+```
