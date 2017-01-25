@@ -44,3 +44,35 @@ var b = new Number(3);
 a === b;
 // returns false because a is a primitive and b is an object
 ```
+
+Avoid using for-in with arrays, arrays are objects and prototypes can throw you off
+
+Prototypal Inheritance:
+```Javascript
+var person = {
+  firstname: 'Default',
+  lastname: 'Default',
+  greet: function() {
+    return 'Hi ' + this.firstname;
+  }
+}
+
+var chris = Object.create(person);
+chris.firstname = 'Chris';
+console.log(chris.greet());
+// outputs 'Hi Chris'
+```
+
+Polyfill: code that adds a feature that the engine may lack
+```Javascript
+if (!Object.create) {
+  Object.create = function(o) {
+    if (arguments.length > 1) {
+      throw new Error('Object.create implementation only accepts the first parameter.');
+    }
+    function F() {}
+    F.prototype = o;
+    return new F();
+  };
+}
+```
