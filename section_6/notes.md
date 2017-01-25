@@ -104,7 +104,7 @@ class InformalPerson extends Person {
   constructor(firstname, lastname) {
     super(firstname, lastname);
   }
-
+  // overrides the greet method from Person
   greet() {
     return 'Yo ' + firstname;
   }
