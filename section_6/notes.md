@@ -85,3 +85,28 @@ if (!Object.create) {
   };
 }
 ```
+
+Classes in ES6: in most programming languages ```class``` is a template to create objects from. But in JS it's an object itself from which we create additional objects.
+The ```extends``` keyword sets the Protoype(__proto__)
+```Javascript
+class Person {
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+
+  greet() {
+    return 'Hi ' + firstname;
+  }
+}
+
+class InformalPerson extends Person {
+  constructor(firstname, lastname) {
+    super(firstname, lastname);
+  }
+
+  greet() {
+    return 'Yo ' + firstname;
+  }
+}
+```
