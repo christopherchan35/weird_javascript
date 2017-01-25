@@ -27,6 +27,14 @@ Person.prototype.getFormalFullName = function() {
 console.log(chris.getFormalFullName());
 // outputs Chan, Chris
 ```
+
+```___proto___``` is the actual object that is used in the lookup chain to resolve methods, etc.
+```prototype``` is the object that is used to build ```___proto___``` when you create an object with ```new```.
+```Javascript
+( new Foo ).__proto__ === Foo.prototype
+( new Foo ).prototype === undefined
+```
+
 It's better to put your methods on the prototype because each object takes up memory space, while a prototype method is only taking up space one time and used whenever it is called.
 
 Any function that is meant to be a function constructor should start with a capital
@@ -64,6 +72,7 @@ console.log(chris.greet());
 ```
 
 Polyfill: code that adds a feature that the engine may lack
+The following is an example of a polyfill, if the browser has a JS create function, then no need to refer to the polyfill. Otherwise it can use this one if it lacks that functionality.
 ```Javascript
 if (!Object.create) {
   Object.create = function(o) {
