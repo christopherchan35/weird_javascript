@@ -302,3 +302,54 @@ tellMeWhenDone(function() {
   console.log('Callback2');
 })
 ```
+
+All functions in JS have access to 3 additional functions: call, apply, and bind.
+```Javascript
+// bind() is used to set the 'this' within functions. it creates a copy of the function
+var person = {
+  firstname: 'Chris',
+  lastname: 'Chan',
+  getFullName: function(){
+    var fullname = this.firstname + ' ' + this.lastname;
+    return fullname;
+  }
+}
+
+var logName = function(lang1, lang2){
+  console.log('Logged ' + this.getFullName());
+  console.log('Arguments: ' + lang1 + ' ' + lang2);
+}
+
+var logPersonName = logName.bind(person);
+// the bind allows the this.getFullName() in the logName anonymous function to point to the var person instead of the global this Window object
+
+logPersonName();
+logPersonName('en');
+// will output: 'Logged Chris Chan'
+// 'Arguments: en undefined'
+
+// call() is similar to invoking a function with parenthesis but allows the user to set this and pass in parameters
+logName.call(person, 'en', 'es');
+
+// apply() is very similar to call except you pass in the parameters as an array
+logName.apply(person, ['en', 'es']);
+
+// function borrowing
+var person2 = {
+  firstname: 'Jane',
+  lastname: 'Doe'
+}
+
+person.getFullName.apply(person2);
+// here we use person's getFullName method but with the values from person2
+
+// function currying: creating a copy of a function but with some preset parameters
+function multiply(a, b){
+  return a * b;
+}
+
+var multiplyByTwo = multiply.bind(this, 2);
+// bind already creates a copy of the function, but by passing in parameters it sets the permanent values of the parameters when the copy is made. This makes it so that every multiplyByTwo function has var a = 2
+
+multiplyByTwo(3); // which will return 2 * 3 which is 6
+```
