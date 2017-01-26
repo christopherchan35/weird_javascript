@@ -2,7 +2,6 @@
   var Greetr = function(firstName, lastName, language){
     return new Greetr.init(firstName, lastName, language);
     }
-  }
 
   // inside prototype is where we put methods that we will want to use in the object that is returned from Greetr
   Greetr.prototype = {};
