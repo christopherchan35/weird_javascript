@@ -23,7 +23,7 @@
 
   // inside prototype is where we put methods that we will want to use in the object that is returned from Greetr
   Greetr.prototype = {
-    fullname: function() {
+    fullName: function() {
       return this.firstName + ' ' + this.lastName;
     },
 
@@ -51,7 +51,41 @@
       else {
         msg = this.greeting();
       }
+
+      if (console) {
+        console.log(msg);
+      }
       // 'this' refers to the calling object at execution time and makes the method chainable
+      return this;
+    },
+    log: function() {
+      if (console) {
+        console.log(logMessages[this.language] + ': ' + this.fullName());
+      }
+      return this;
+    },
+    setLang: function(lang) {
+      this.language = lang;
+      this.validate();
+      return this;
+    },
+    HTMLGreeting: function(selector, formal) {
+      if (!$) {
+        throw 'jQuery not loaded';
+      }
+      if (!selector) {
+        throw 'missing jQuery selector';
+      }
+
+      var msg;
+      if (formal) {
+        msg = this.formalGreeting();
+      }
+      else {
+        msg = this.greeting();
+      }
+
+      $(selector).html(msg);
       return this;
     }
   };

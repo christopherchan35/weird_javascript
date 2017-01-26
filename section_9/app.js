@@ -2,4 +2,9 @@
 // var g = G$(firstname, lastname, language);
 
 var g = G$('John', 'Doe');
-console.log(g);
+
+// g.greet().setLang('es').greet(true);
+// will error out because 'fr' is not a supportedLang
+// g.setLang('fr');
+
+g.HTMLGreeting('#greeting', true);
