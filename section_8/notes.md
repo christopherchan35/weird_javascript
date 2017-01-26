@@ -9,3 +9,4 @@ In method chaining, instead of affecting the thing right before the dot operator
 ``` Javascript
 var a = $('ul.oldclass').addclass('newclass').removeclass('oldclass');
 ```
+But keep in mind that if you're relatively new to Javascript, relying on JQuery as a crutch can be helpful in the short-term but definitely look into the source code and understand the underlying Javascript and learn how they are doing things.
