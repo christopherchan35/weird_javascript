@@ -3,17 +3,14 @@
     return new Greetr.init(firstName, lastName, language);
     }
   }
+
+  Greetr.prototype = {};
+
+  // use self so we don't need to worry about what the current value of 'this' is
   Greetr.init = function(firstName, lastName, language){
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.language = language || 'en';
+    var self = this;
+    self.firstName = firstName || '';
+    self.lastName = lastName || '';
+    self.language = language || 'en';
   }
-    // function init(firstName, lastName, language){
-    //   this.firstname = firstname;
-    //   this.lastname = lastname;
-    //
-    // }
-
-
-
 }(window, jQuery));
