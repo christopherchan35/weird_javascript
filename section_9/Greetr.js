@@ -6,8 +6,55 @@
   // this acts as a private variable because it isn't exposed to the outside world through Greetr but can still be used through Greetr objects because its lexical environment is the entire function which includes supportedLangs
   var supportedLangs = ['en', 'es'];
 
+  var greetings = {
+    en: 'Hello',
+    es: 'Hola'
+  };
+
+  var formalGreetings = {
+    en: 'Greetings',
+    es: 'Saludos'
+  };
+
+  var logMessages = {
+    en: 'Logged in',
+    es: 'Inició sesión'
+  }
+
   // inside prototype is where we put methods that we will want to use in the object that is returned from Greetr
-  Greetr.prototype = {};
+  Greetr.prototype = {
+    fullname: function() {
+      return this.firstName + ' ' + this.lastName;
+    },
+
+    validate: function() {
+      if (supportedLangs.indexOf(this.language) === -1) {
+        throw 'Invalid language";'
+      }
+    },
+
+    greeting: function() {
+      return greetings[this.language] + ' ' + this.firstName + '!';
+    },
+
+    formalGreeting: function() {
+      return formalGreetings[this.language] + ' ' + this.fullName();
+    },
+
+    greet: function(formal) {
+      var msg;
+
+      // if undefined or null it will be coerced to 'false'
+      if (formal) {
+        msg = this.formalGreeting();
+      }
+      else {
+        msg = this.greeting();
+      }
+      // 'this' refers to the calling object at execution time and makes the method chainable
+      return this;
+    }
+  };
 
   // use self so we don't need to worry about what the current value of 'this' is
   Greetr.init = function(firstName, lastName, language){
