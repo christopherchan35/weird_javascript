@@ -3,6 +3,9 @@
     return new Greetr.init(firstName, lastName, language);
     }
 
+  // this acts as a private variable because it isn't exposed to the outside world through Greetr but can still be used through Greetr objects because its lexical environment is the entire function which includes supportedLangs
+  var supportedLangs = ['en', 'es'];
+
   // inside prototype is where we put methods that we will want to use in the object that is returned from Greetr
   Greetr.prototype = {};
 
