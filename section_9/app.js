@@ -3,6 +3,8 @@
 
 var g = G$('John', 'Doe');
 
-g.greet().setLang('es').greet(true);
+// g.greet().setLang('es').greet(true);
 // will error out because 'fr' is not a supportedLang
-g.setLang('fr');
+// g.setLang('fr');
+
+g.HTMLGreeting('#greeting', true);
