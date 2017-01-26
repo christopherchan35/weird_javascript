@@ -53,6 +53,17 @@
       }
       // 'this' refers to the calling object at execution time and makes the method chainable
       return this;
+    },
+    log: function() {
+      if (console) {
+        console.log(logMessages[this.language] + ': ' + this.fullName());
+      }
+      return this;
+    },
+    setLang: function(lang) {
+      this.langauge = lang;
+      this.validate();
+      return this;
     }
   };
 
