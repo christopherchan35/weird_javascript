@@ -1,4 +1,5 @@
-(function(global, $){
+// you may run into JS code that begins with a semicolon like this. It is to help finish out code that may have been injected before it to make sure its own code runs properly
+;(function(global, $){
   // 'new' an object
   var Greetr = function(firstName, lastName, language){
     return new Greetr.init(firstName, lastName, language);
