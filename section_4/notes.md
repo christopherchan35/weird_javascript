@@ -91,7 +91,7 @@ c.greeting = 'hello';
 
 // except the equals operator sets up a new memory space
 c = { greeting: 'howdy' };
-// so c would not point to howdy while d still points to hello
+// so c would now point to howdy while d still points to hello
 ```
 
 'This' on the global scope refers to the Window
